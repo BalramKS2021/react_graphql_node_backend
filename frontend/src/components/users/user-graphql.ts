@@ -4,20 +4,39 @@ export interface User {
   name: string;
   age: number;
 }
-export const USER_QUERY = gql`
-  query GetAllUser {
+export const GET_ALL_USERS_QUERY = gql`
+  query GetAllUsers {
     users @rest(type: "Get All Users", path: "users") {
       _id
       name
+      age
     }
   }
 `;
 
-export const ADD_USER_MUTATION = gql`
+export const GET_USER_QUERY = gql`
+  query GetUser($Id: ID!) {
+    user(id: $Id) @rest(type: "Get User", path: "user/{args.id}") {
+      _id
+      name
+      age
+    }
+  }
+`;
+
+export const CREATE_USER_MUTATION = gql`
   mutation AddUser {
     addUser(input: $input) @rest(type: "Create New User", path: "/user", method:"POST") {
       name
       age
+    }
+  }
+`;
+
+export const USER_DELETE_QUERY = gql`
+  mutation GetUser($Id: ID!) {
+    user(id: $Id) @rest(type: "Delete User", path: "user/{args.id}", method:"DELETE") {
+      _id
     }
   }
 `;

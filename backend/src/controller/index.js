@@ -46,7 +46,7 @@ export const updateUser = async (req, res) => {
     const options = { new: true };
     const results = await userModel.findByIdAndUpdate(id, updateData, options)
     try {
-        res.status(200).send(results)
+        res.status(200).json(results)
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
@@ -57,7 +57,7 @@ export const deleteUser = async (req, res) => {
     const id = req.params.id;
     const data = await userModel.findByIdAndDelete(id);
     try {
-        res.status(200).send(`User ${data.name} deleted successfully`);
+        res.status(200).json({ message: `User ${data.name} deleted successfully` });
     } catch (error) {
         res.status(400).json({ message: error.message });
     }

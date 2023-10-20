@@ -1,13 +1,13 @@
 import { ChangeEvent, useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { ADD_USER_MUTATION, User } from './user-graphql';
+import { CREATE_USER_MUTATION, User } from './user-graphql';
 import { Box, Button, Stack, TextField, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 const AddUser = () => {
     const navigate = useNavigate()
     const [user, setUser] = useState<User>({ name: "", age: 0 });
-    const [createUser] = useMutation(ADD_USER_MUTATION, {
+    const [createUser] = useMutation(CREATE_USER_MUTATION, {
         variables: {
             input: {
                 name: user?.name,

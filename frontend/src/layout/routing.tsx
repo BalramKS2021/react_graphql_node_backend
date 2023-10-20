@@ -2,6 +2,7 @@ import { Suspense } from "react"
 import { Route, Routes } from "react-router-dom"
 import UserList from "../components/users"
 import AddUser from "../components/users/user-add"
+import UserDetail from "../components/users/user-profile"
 
 const Routing = () => {
     return (
@@ -19,6 +20,14 @@ const Routing = () => {
                 element={
                     <Suspense fallback={<>...</>}>
                         <AddUser />
+                    </Suspense>
+                }
+            />
+            <Route
+                path="/user-profile/:id"
+                element={
+                    <Suspense fallback={<>...</>}>
+                        <UserDetail />
                     </Suspense>
                 }
             />
