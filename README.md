@@ -1,10 +1,15 @@
 # react_graphql_node_backend
 
-## Available Scripts
+## React with GraphQL
 
-### `cd frontend`
-### `cd backend`
+```
+cd frontend
+```
 
+## Nodejs with mongodb
+```
+cd backend
+```
 In the project directory, you can run:
 
 ## Quick start
