@@ -1,8 +1,9 @@
 import { ChangeEvent, useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { CREATE_USER_MUTATION, User } from './user-graphql';
-import { Box, Button, Stack, TextField, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { Box } from '@mui/material';
+import { CREATE_USER_MUTATION, User } from './user-graphql';
+import UserForm from './user-form';
 
 const AddUser = () => {
     const navigate = useNavigate()
@@ -14,7 +15,7 @@ const AddUser = () => {
                 age: user?.age,
             }
         },
-        refetchQueries: ['GetUsers']
+        refetchQueries: ['GetAllUsers']
     });
     const handleChange = (
         e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -30,21 +31,7 @@ const AddUser = () => {
 
     return (
         <Box>
-            <Typography variant="h3">Add a Post</Typography>
-            <Stack
-                component="form"
-                sx={{
-                    width: '25ch',
-                }}
-                spacing={2}
-                noValidate
-                autoComplete="off"
-                onSubmit={handleSubmit}
-            >
-                <TextField id="name" name="name" label="Name" variant="outlined" value={user?.name} onChange={handleChange} />
-                <TextField id="age" name="age" label="Age" variant="outlined" value={user?.age} onChange={handleChange} type="number" />
-                <Button type="submit">Submit</Button>
-            </Stack>
+            <UserForm heading="Create a User" onSubmit={handleSubmit} user={user} handleChange={handleChange} />
         </Box >
     );
 };

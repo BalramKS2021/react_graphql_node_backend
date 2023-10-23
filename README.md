@@ -14,7 +14,7 @@ http://localhost:3000/
 cd backend
 ```
 The nodejs api is here -  
-http://localhost:4000/
+http://localhost:4000/api
 
 In the project directory, you can run:
 

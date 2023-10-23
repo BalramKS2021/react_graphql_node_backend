@@ -40,7 +40,7 @@ const UserList = () => {
     <Box>
       <Box className={classes.HeaderBox}>
         <Typography variant="h2">Users List</Typography>
-        <Button href='/add-post'>Add Post</Button>
+        <Button href='/user-create'>Add User</Button>
       </Box>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="caption table">
@@ -63,8 +63,8 @@ const UserList = () => {
                 <TableCell scope="row" align="center">
                   <ButtonGroup variant="text" aria-label="text button group">
                     <Button href={`/user-profile/${user._id}`}><Icon>visibility</Icon></Button>
-                    <Button color="secondary"><Icon>edit</Icon></Button>
-                    <Button color='error' onClick={() => handleDeleting(user._id)}><Icon>delete</Icon></Button>
+                    <Button href={`/user-edit/${user._id}`} color="secondary"><Icon>edit</Icon></Button>
+                    <Button onClick={() => handleDeleting(user._id)} color='error'><Icon>delete</Icon></Button>
                   </ButtonGroup>
                 </TableCell>
               </TableRow>

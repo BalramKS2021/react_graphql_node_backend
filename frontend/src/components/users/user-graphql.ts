@@ -26,7 +26,16 @@ export const GET_USER_QUERY = gql`
 
 export const CREATE_USER_MUTATION = gql`
   mutation AddUser {
-    addUser(input: $input) @rest(type: "Create New User", path: "/user", method:"POST") {
+    addUser(input: $input) @rest(type: "Create New User", path: "user", method:"POST") {
+      name
+      age
+    }
+  }
+`;
+
+export const UPDATE_USER_MUTATION = gql`
+  mutation UpdateUser($Id: ID!, $input: INPUT!) {
+    user(id: $Id, input: $input) @rest(type: "Update User", path: "user/{args.id}", method:"PATCH") {
       name
       age
     }
