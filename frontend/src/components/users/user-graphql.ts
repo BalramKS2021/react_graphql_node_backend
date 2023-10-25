@@ -26,7 +26,8 @@ export const GET_USER_QUERY = gql`
 
 export const CREATE_USER_MUTATION = gql`
   mutation AddUser {
-    addUser(input: $input) @rest(type: "Create New User", path: "user", method:"POST") {
+    addUser(input: $input)
+      @rest(type: "Create New User", path: "user", method: "POST") {
       name
       age
     }
@@ -35,7 +36,8 @@ export const CREATE_USER_MUTATION = gql`
 
 export const UPDATE_USER_MUTATION = gql`
   mutation UpdateUser($Id: ID!, $input: INPUT!) {
-    user(id: $Id, input: $input) @rest(type: "Update User", path: "user/{args.id}", method:"PATCH") {
+    user(id: $Id, input: $input)
+      @rest(type: "Update User", path: "user/{args.id}", method: "PATCH") {
       name
       age
     }
@@ -44,7 +46,8 @@ export const UPDATE_USER_MUTATION = gql`
 
 export const USER_DELETE_QUERY = gql`
   mutation GetUser($Id: ID!) {
-    user(id: $Id) @rest(type: "Delete User", path: "user/{args.id}", method:"DELETE") {
+    user(id: $Id)
+      @rest(type: "Delete User", path: "user/{args.id}", method: "DELETE") {
       _id
     }
   }

@@ -1,10 +1,11 @@
-import { createTheme } from "@mui/material/styles"
+import { createTheme } from "@mui/material/styles";
 
-const ThemeStyle = () => createTheme({
+const ThemeStyle = () =>
+  createTheme({
     palette: {
-        primary: {
-            main: "#02afaa",
-        },
+      primary: {
+        main: "#02afaa",
+      },
     },
-})
+  });
 export default ThemeStyle;

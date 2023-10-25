@@ -1,9 +1,9 @@
-import Routing from "./routing"
+import Routing from "./routing";
 
 export const Layout = () => {
-    return (
-        <>
-            <Routing />
-        </>
-    )
-}
+  return (
+    <>
+      <Routing />
+    </>
+  );
+};
