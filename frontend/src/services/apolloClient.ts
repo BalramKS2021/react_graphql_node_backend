@@ -1,12 +1,17 @@
 import { ApolloClient, InMemoryCache } from "@apollo/client";
-import { RestLink } from "apollo-link-rest";
+import { WebSocketLink } from "@apollo/client/link/ws";
 
-// Set `RestLink` with your endpoint
-const restLink = new RestLink({ uri: process.env.REACT_APP_REMOTE_API });
+const link = new WebSocketLink({
+  uri: `ws://localhost:4000/`,
+  options: {
+    reconnect: true,
+  },
+});
 
 const client = new ApolloClient({
+  link,
   cache: new InMemoryCache(),
-  link: restLink,
+  uri: process.env.REACT_APP_API,
   connectToDevTools: true,
 });
 

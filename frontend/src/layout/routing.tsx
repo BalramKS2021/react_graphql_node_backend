@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
+import Chat from "../components/chat";
 import UserList from "../components/users";
 import AddUser from "../components/users/user-add";
 import UserDetail from "../components/users/user-profile";
@@ -10,6 +11,14 @@ const Routing = () => {
     <Routes>
       <Route
         path="/"
+        element={
+          <Suspense fallback={<>...</>}>
+            <Chat />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/users"
         element={
           <Suspense fallback={<>...</>}>
             <UserList />
