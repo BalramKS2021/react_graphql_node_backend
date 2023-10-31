@@ -23,3 +23,4 @@ In the project directory, you can run:
 npm install
 npm start
 ```
+![Screenshot from 2023-10-31 19-26-18](https://github.com/BalramKS2021/react_graphql_node_backend/assets/92856322/e4badc25-0054-480e-af8f-9af1a180ffd5)
